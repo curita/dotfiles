@@ -226,12 +226,19 @@ nnoremap Y y$
 " Fast saving
 nmap <leader>w :update<cr>
 
+" Fast quiting
+nmap <leader>q :quit<cr>
+
 " Fast sorting
 vnoremap <leader>s :sort<cr>
 
 " Easier formatting of paragraphs
 vmap Q gq
 nmap Q gqap
+
+" I don't have insert key. It's usefull for switching between replace and
+" insert mode.
+inoremap <C-z> <Insert>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
