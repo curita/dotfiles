@@ -360,6 +360,8 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'Shougo/neocomplcache.vim'
 " Multiple cursors
 Bundle 'terryma/vim-multiple-cursors'
+" Seamless navigation between tmux panes and vim splits
+Bundle 'christoomey/vim-tmux-navigator'
 
 " Bundles from vim-scripts repos
 
