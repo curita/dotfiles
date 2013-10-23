@@ -115,6 +115,9 @@ syntax enable
 " Dark background
 set background=dark
 
+" Force 256 support
+set t_Co=256
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
@@ -396,11 +399,7 @@ let g:solarized_termcolors = 256
 let g:solarized_contrast = 'high'
 
 " Set colorscheme
-if &term =~? 'mlterm\|xterm\|xterm-256\|screen-256'
-    colorscheme hybrid
-else
-    colorscheme delek
-endif
+colorscheme hybrid
 
 
 """"""""""""""""""""""""""""""
