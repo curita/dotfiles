@@ -93,7 +93,9 @@ set list
 set listchars=tab:▸\ ,trail:.,extends:#,nbsp:.
 
 " Remap join to merge comment lines
-set formatoptions+=j
+if v:version > 703 || v:version == 703 && has("patch541")
+    set formatoptions+=j
+endif
 
 " Avoid escape key delay
 if !has('gui_running')
