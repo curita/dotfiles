@@ -354,6 +354,8 @@ Bundle 'fisadev/FixedTaskList.vim'
 Bundle 'tpope/vim-surround'
 " Autoclose
 Bundle 'Raimondi/delimitMate'
+" Indent text object
+Bundle 'michaeljsmith/vim-indent-object'
 " Python mode (indentation, doc, refactor, lints, code checking, motion and
 " operators, highlighting, run and ipdb breakpoints)
 Bundle 'klen/python-mode'
