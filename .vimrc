@@ -359,16 +359,14 @@ Bundle 'michaeljsmith/vim-indent-object'
 " Python mode (indentation, doc, refactor, lints, code checking, motion and
 " operators, highlighting, run and ipdb breakpoints)
 Bundle 'klen/python-mode'
-" Python autocompletition and documentation
-Bundle 'davidhalter/jedi-vim'
 " Git diff icons on the side of the file lines
 Bundle 'airblade/vim-gitgutter'
-" Autocompletion
-Bundle 'Shougo/neocomplcache.vim'
 " Multiple cursors
 Bundle 'terryma/vim-multiple-cursors'
 " Seamless navigation between tmux panes and vim splits
 Bundle 'christoomey/vim-tmux-navigator'
+" Autocompletition
+Bundle 'Valloric/YouCompleteMe'
 
 " Bundles from vim-scripts repos
 
@@ -409,7 +407,7 @@ colorscheme hybrid
 """"""""""""""""""""""""""""""
 " => Ultisnips
 """"""""""""""""""""""""""""""
-let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<c-e>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
@@ -509,13 +507,6 @@ let g:gitgutter_realtime = 0  "
 
 
 """"""""""""""""""""""""""""""
-" => Jedi-vim
-""""""""""""""""""""""""""""""
-" To avoid interfering with the autocompletition
-let g:jedi#popup_on_dot = 0
-
-
-""""""""""""""""""""""""""""""
 " => Airline
 """"""""""""""""""""""""""""""
 let g:airline_theme             = 'tomorrow'
@@ -532,61 +523,7 @@ let g:airline_linecolumn_prefix = '⭡'"
 
 
 """"""""""""""""""""""""""""""
-" => Neocomplcache
+" => YouCompleteMe
 """"""""""""""""""""""""""""""
-" Use neocomplcache.
-let g:neocomplcache_enable_at_startup = 1
-" Use smartcase.
-let g:neocomplcache_enable_smart_case = 1
-" Set minimum syntax keyword length.
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-
-" Define keyword.
-if !exists('g:neocomplcache_keyword_patterns')
-    let g:neocomplcache_keyword_patterns = {}
-endif
-let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
-
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplcache#undo_completion()
-inoremap <expr><C-l>     neocomplcache#complete_common_string()
-
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return neocomplcache#smart_close_popup() . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
-endfunction
-" <TAB>: completion.
-" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplcache#close_popup()
-inoremap <expr><C-e>  neocomplcache#cancel_popup()
-" Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? neocomplcache#close_popup() : "\<Space>"
-
-" Enable heavy omni completion.
-if !exists('g:neocomplcache_omni_patterns')
-  let g:neocomplcache_omni_patterns = {}
-endif
-let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-" For perlomni.vim setting.
-" https://github.com/c9s/perlomni.vim
-let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-
-if !exists('g:neocomplcache_force_omni_patterns')
-  let g:neocomplcache_force_omni_patterns = {}
-endif
-let g:neocomplcache_force_omni_patterns.python = '[^. \t]\.\w*'
-
-if !exists('g:neocomplcache_omni_functions')
-    let g:neocomplcache_omni_functions = {}
-endif
-let g:neocomplcache_omni_functions['python'] = 'jedi#completions'
+let g:ycm_key_detailed_diagnostics = ''
+nnoremap <leader>d :YcmCompleter GoToDefinition<CR>
