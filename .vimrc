@@ -367,11 +367,13 @@ Bundle 'terryma/vim-multiple-cursors'
 Bundle 'christoomey/vim-tmux-navigator'
 " Autocompletition
 Bundle 'Valloric/YouCompleteMe'
+" UltiSnips Code Completition
+Bundle 'SirVer/ultisnips'
+" Snipmate and Ultisnips snippets
+Bundle 'honza/vim-snippets'
 
 " Bundles from vim-scripts repos
 
-" UltiSnips Code Completition
-Bundle 'UltiSnips'
 " XML/HTML tags navigation
 Bundle 'matchit.zip'
 
